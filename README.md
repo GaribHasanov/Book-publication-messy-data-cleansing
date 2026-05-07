@@ -1,91 +1,87 @@
-# 📚 Public Books Dataset – Data Cleaning Pipeline
+# 📚 Books Data Cleaning Pipeline
 
 ## Overview
 
-This project focuses on **data cleaning and standardization** of a messy public books dataset.  
-The dataset originally contains inconsistent formatting, multilingual entries, and noisy textual data.
+This project focuses on cleaning and standardizing a messy public books dataset.  
+The dataset contains inconsistencies such as:
 
-The main goal is to transform raw data into a **clean, structured, and analysis-ready dataset**.
+- Special characters in text fields  
+- Multilingual place names  
+- Irregular formatting  
+- Noisy and unstructured data  
 
----
-
-## Problem Statement
-
-The dataset includes:
-
-- Inconsistent place names (cities/countries)
-- Special characters and noise symbols
-- Multilingual entries
-- Unstandardized formatting across columns
+The goal is to transform raw data into a clean, structured, and analysis-ready dataset.
 
 ---
 
-## Solution Approach (Data Cleaning Pipeline)
+## Data Cleaning Pipeline
 
-### 1. Data Profiling
-A full inspection of all dataset columns was performed to identify:
-
-- Null or empty values  
-- Irregular text formats  
-- Encoding issues  
-- Non-standard place names  
+### Step 1: Data Inspection
+- Reviewed all dataset columns
+- Identified missing values and inconsistencies
+- Detected formatting issues and noisy text
 
 ---
 
-### 2. Cleaning "Place of Publication"
-
-Key transformations:
-
-- Lowercasing all text values  
-- Removing special characters using regex  
-- Standardizing city names using external reference dataset  
-- Translating non-English entries into English  
+### Step 2: Text Cleaning
+- Converted text to lowercase
+- Removed special characters using regex
+- Standardized formatting across columns
 
 ---
 
-### 3. Reference Dataset Integration
-
-A standardized city reference dataset (`world-cities.csv`) was used to:
-
-- Validate existing values  
-- Match correct city names  
-- Identify unmatched or noisy records  
+### Step 3: Standardization (Place of Publication)
+- Used external dataset (`world-cities.csv`)
+- Matched city names with reference list
+- Ensured consistency in place names
 
 ---
 
-### 4. Data Matching Strategy
-
-- Exact matches → directly accepted  
-- Non-matches → translated into English  
-- Re-attempted matching after translation  
-- Remaining unmatched rows flagged for further processing  
+### Step 4: Translation
+- Translated non-English entries into English
+- Normalized multilingual data into a single language standard
 
 ---
 
-### 5. Final Output
-
-The final dataset contains:
-
-- Clean and standardized place names  
-- Consistent formatting across all fields  
-- Duplicate-free structured data  
-- Exported as Excel file for analysis  
+### Step 5: Final Dataset
+- Merged cleaned and matched data
+- Removed duplicates
+- Exported final structured dataset
 
 ---
 
-## 📁 Project Structure
+## Tools Used
 
-Book-Publication-Data-Cleansing/
-│
-├── data/
-│ ├── Images-Book.csv
-│ ├── world-cities.csv
-│
-├── notebooks/
-│ └── Messy data cleansing_(Book publication).ipynb
-│
-├── scripts/
-│ └── data_cleaning.py
-│
-└── output/
-└── book_cleaned.xlsx
+- Python  
+- Pandas  
+- Googletrans  
+- Regex  
+
+---
+
+## Dataset Files
+
+- `Images-Book.csv` → raw dataset  
+- `world-cities.csv` → reference dataset  
+
+---
+
+## Output
+
+The final output is a fully cleaned dataset exported as:
+
+`cleaned_books.xlsx`
+
+---
+
+## Conclusion
+
+This project demonstrates a complete data cleaning workflow including:
+
+- Data preprocessing  
+- Text normalization  
+- External dataset matching  
+- Translation-based cleaning  
+- Final structured export  
+
+The result is a clean and analysis-ready dataset suitable for further data science tasks.
