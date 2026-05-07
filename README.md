@@ -74,3 +74,18 @@ The final dataset contains:
 ---
 
 ## 📁 Project Structure
+
+Book-Publication-Data-Cleansing/
+│
+├── data/
+│ ├── Images-Book.csv
+│ ├── world-cities.csv
+│
+├── notebooks/
+│ └── Messy data cleansing_(Book publication).ipynb
+│
+├── scripts/
+│ └── data_cleaning.py
+│
+└── output/
+└── book_cleaned.xlsx
