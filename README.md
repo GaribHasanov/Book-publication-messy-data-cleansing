@@ -1,16 +1,76 @@
-# Public Books Dataset - Comprehensive Data Cleansing
-This repository contains a data cleansing project focused on improving the quality and consistency of a public books dataset. The dataset initially contained numerous instances of dirty data, including unnecessary symbols, inconsistent city and country names, and entries in various languages.
+# 📚 Public Books Dataset – Data Cleaning Pipeline
 
-## Key Steps in the Data Cleansing Process:
-Comprehensive Data Review: Conducted an extensive review of all columns within the dataset to identify and address issues such as unnecessary symbols, irregular formatting, and inconsistent data entries.
+## Overview
 
-### Place of Publication Cleansing:
+This project focuses on **data cleaning and standardization** of a messy public books dataset.  
+The dataset originally contains inconsistent formatting, multilingual entries, and noisy textual data.
 
-Identified and corrected entries in the "Place of Publication" column, which included city and country names with unnecessary symbols and foreign language entries (e.g., "ZuÌˆrich," "'s Gravenhage").
-Downloaded a standardized list of city names in English and saved it to an Excel file.
-Translated the existing "Place of Publication" entries to English and matched them against the downloaded list.
-Cleaned matched entries and applied necessary transformations to unmatched rows, ensuring all place names were consistent and in English.
-Transformation of Unmatched Data: For rows that did not match the standardized list, further data transformations were performed to correct and standardize these entries.
+The main goal is to transform raw data into a **clean, structured, and analysis-ready dataset**.
 
-## Outcome:
-The result is a cleansed dataset with all columns standardized, free of unnecessary symbols, and with consistent place names in English. This project exemplifies thorough data cleaning techniques applied to a complex, real-world dataset.
+---
+
+## Problem Statement
+
+The dataset includes:
+
+- Inconsistent place names (cities/countries)
+- Special characters and noise symbols
+- Multilingual entries
+- Unstandardized formatting across columns
+
+---
+
+## Solution Approach (Data Cleaning Pipeline)
+
+### 1. Data Profiling
+A full inspection of all dataset columns was performed to identify:
+
+- Null or empty values  
+- Irregular text formats  
+- Encoding issues  
+- Non-standard place names  
+
+---
+
+### 2. Cleaning "Place of Publication"
+
+Key transformations:
+
+- Lowercasing all text values  
+- Removing special characters using regex  
+- Standardizing city names using external reference dataset  
+- Translating non-English entries into English  
+
+---
+
+### 3. Reference Dataset Integration
+
+A standardized city reference dataset (`world-cities.csv`) was used to:
+
+- Validate existing values  
+- Match correct city names  
+- Identify unmatched or noisy records  
+
+---
+
+### 4. Data Matching Strategy
+
+- Exact matches → directly accepted  
+- Non-matches → translated into English  
+- Re-attempted matching after translation  
+- Remaining unmatched rows flagged for further processing  
+
+---
+
+### 5. Final Output
+
+The final dataset contains:
+
+- Clean and standardized place names  
+- Consistent formatting across all fields  
+- Duplicate-free structured data  
+- Exported as Excel file for analysis  
+
+---
+
+## 📁 Project Structure
